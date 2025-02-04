@@ -1,26 +1,24 @@
-@import '/src/styles/variables';
-@import '/src/styles/mixins';
-
 .header {
-  background-color: $header-background-color;
-  padding: $padding-small $padding-medium;
-  box-shadow: 0 2px 5px $header-shadow-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .logo {
-    font-size: $font-size-large;
+    font-size: 24px;
     font-weight: bold;
     color: #333;
   }
 
   .search-bar {
-    margin: $padding-small 0;
+    flex: 1;
+    margin: 0 80px;
 
     input {
       width: 100%;
-      padding: $padding-small;
+      padding: 10px;
       border: 1px solid #ccc;
-      @include border-radius(4px);
-      font-size: $font-size-medium;
+      border-radius: 4px;
+      font-size: 16px;
     }
   }
 
@@ -29,14 +27,37 @@
     align-items: center;
 
     img {
-      @include border-radius(50%);
+      border-radius: 50%;
       width: 40px;
       height: 40px;
-      margin-right: $padding-small;
+      margin-right: 10px;
     }
 
     span {
-      font-size: $font-size-medium;
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    align-items: flex-start;
+
+    .logo {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .search-bar {
+      margin: 5px 0;
+      width: 80%;
+    }
+
+    .profile {
+      margin-top: 10px;
+      justify-content: center;
     }
   }
 }
