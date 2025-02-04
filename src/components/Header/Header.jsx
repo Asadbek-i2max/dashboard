@@ -1,6 +1,8 @@
+import './Header.scss';
+
 const Header = () => {
-  <>
-    <header>
+  return <>
+    <header className="header">
       <div className="logo">Fido-Biznes</div>
       <div className="search-bar">
         <input type="text" placeholder="Search for a challenge..." />
@@ -13,5 +15,4 @@ const Header = () => {
     </header>
   </>;
 };
-
 export default Header;
