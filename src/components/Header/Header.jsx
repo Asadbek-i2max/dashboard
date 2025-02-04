@@ -1,18 +1,22 @@
 import './Header.scss';
+import { Layout, Input, Avatar } from 'antd';
 
-const Header = () => {
-  return <>
-    <header className="header">
-      <div className="logo">Fido-Biznes</div>
-      <div className="search-bar">
-        <input type="text" placeholder="Search for a challenge..." />
-      </div>
+const { Header } = Layout;
 
-      <div className="profile">
-        <img src="/src/assets/images/profile.png" alt="Profile" />
-        <span>Username</span>
-      </div>
-    </header>
-  </>;
+const AppHeader = () => {
+  return (
+    <>
+      <Header className="app-header">
+        <div className="logo">Fido-biznes</div>
+        <div className="search-bar">
+          <Input placeholder="Search for a challenge..." />
+        </div>
+        <div className="profile">
+          <Avatar src="/src/assets/images/profile.png" />
+          <span>Username</span>
+        </div>
+      </Header>
+    </>
+  );
 };
-export default Header;
+export default AppHeader;
