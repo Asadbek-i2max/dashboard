@@ -4,7 +4,7 @@ import {
   DashboardOutlined
 } from '@ant-design/icons';
 
-import Image from './Image';
+import Image from '../Image/Image';
 
 const { Sider } = Layout;
 

@@ -1,10 +1,12 @@
-import Dashboard from './components/Dashboard';
-import Sidebar from './components/Sidebar';
+import Dashboard from './components/Dashboard/Dashboard';
+import Sidebar from './components/Sidebar/Sidebar';
 
 import { useState } from 'react';
 import { Layout } from 'antd';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+
+import './App.scss';
 
 const { Content } = Layout;
 
@@ -15,6 +17,7 @@ function App() {
     setBlocks((prevBlocks) => [
       ...prevBlocks,
       {
+        id: Date.now(),
         url: item.url,
         name: item.name,
         width: 100, 

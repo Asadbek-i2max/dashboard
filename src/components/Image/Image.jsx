@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useDrag } from 'react-dnd';
+import { PictureOutlined } from '@ant-design/icons';
 
 const Image = ({ id, url, name }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -14,18 +15,10 @@ const Image = ({ id, url, name }) => {
   return (
     <div
       ref={drag}
-      style={{
-        opacity: isDragging ? 0.5 : 1,
-        cursor: 'move',
-        marginBottom: '8px',
-      }}
+      className={`image-container ${isDragging ? 'dragging' : ''}`}
     >
-      <img
-        src={url}
-        alt={name}
-        style={{ width: '50px', height: '50px' }}
-      ></img>
-      <span style={{ marginLeft: '8px' }}>{name}</span>
+      <PictureOutlined className="image-preview" />
+      <span className="image-name">{name}</span>
     </div>
   );
 };

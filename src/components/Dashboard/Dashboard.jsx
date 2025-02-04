@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Row, Col } from 'antd';
 import { useDrop } from 'react-dnd';
-import Block from './Block';
+import Block from '../Block/Block';
 
 const Dashboard = ({ blocks = [], onDrop }) => {
   const [, drop] = useDrop(() => ({

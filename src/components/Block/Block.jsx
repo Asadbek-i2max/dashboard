@@ -2,7 +2,8 @@
 import { Resizable } from 'react-resizable';
 import 'react-resizable/css/styles.css';
 
-const Block = ({ children, onResize, width, height }) => {
+// eslint-disable-next-line no-unused-vars
+const Block = ({ id, children, onResize, width, height }) => {
   return (
     <Resizable
       width={width}
