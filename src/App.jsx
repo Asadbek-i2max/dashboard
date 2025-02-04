@@ -14,13 +14,14 @@ function App() {
   const [blocks, setBlocks] = useState([]);
 
   const handleDrop = (item) => {
+    console.log('DROPPED');
     setBlocks((prevBlocks) => [
       ...prevBlocks,
       {
         id: Date.now(),
         url: item.url,
         name: item.name,
-        width: 100, 
+        width: 100,
         height: 100,
       },
     ]);

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Layout, Menu } from 'antd';
-import {
-  DashboardOutlined
-} from '@ant-design/icons';
+import { DashboardOutlined } from '@ant-design/icons';
 
 import Image from '../Image/Image';
+import './Sidebar.scss';
 
 const { Sider } = Layout;
 
@@ -17,20 +16,20 @@ const Sidebar = () => {
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
       width={250}
-      style={{ background: '#fff' }}
+      className="sidebar"
     >
-      <div style={{ padding: '20px', textAlign: 'center' }}>
+      <div className="logo-container">
         <img
           src="/src/assets/images/logo.png"
           alt="Logo"
-          style={{ width: '100%', height: 'auto' }}
+          className="logo"
         />
       </div>
 
       <Menu
         mode="inline"
         defaultSelectedKeys={['1']}
-        style={{ borderRight: 0 }}
+        className="sidebar-menu"
       >
         <Menu.SubMenu
           key="dashboards"
@@ -39,18 +38,43 @@ const Sidebar = () => {
         >
           <Image
             id="1"
-            url="/src/assets/images/logo.png"
-            name="Picture 1"
+            url="/src/assets/dashboardImages/dash1.png"
+            name="Dashboard 1"
           />
           <Image
             id="2"
-            url="/src/assets/images/logo.png"
-            name="Picture 2"
+            url="/src/assets/dashboardImages/dash2.png"
+            name="Dashboard 2"
           />
           <Image
-            id="2"
-            url="/src/assets/images/logo.png"
-            name="Picture 2"
+            id="3"
+            url="/src/assets/dashboardImages/dash3.png"
+            name="Dashboard 3"
+          />
+          <Image
+            id="4"
+            url="/src/assets/dashboardImages/dash4.png"
+            name="Dashboard 4"
+          />
+          <Image
+            id="5"
+            url="/src/assets/dashboardImages/dash5.png"
+            name="Dashboard 5"
+          />
+          <Image
+            id="6"
+            url="/src/assets/dashboardImages/dash6.png"
+            name="Dashboard 6"
+          />
+          <Image
+            id="7"
+            url="/src/assets/dashboardImages/dash7.png"
+            name="Dashboard 7"
+          />
+          <Image
+            id="8"
+            url="/src/assets/dashboardImages/dash8.png"
+            name="Dashboard 8"
           />
         </Menu.SubMenu>
       </Menu>
