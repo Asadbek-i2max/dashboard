@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useDrag } from 'react-dnd';
-import { DashboardFilled } from '@ant-design/icons';
+import { BarChartOutlined } from '@ant-design/icons';
 
 import './Image.scss';
 
@@ -19,7 +19,7 @@ const Image = ({ id, url, name }) => {
       ref={drag}
       className={`image-container ${isDragging ? 'dragging' : ''}`}
     >
-      <DashboardFilled className="image-preview" />
+      <BarChartOutlined className="image-preview" />
       <span className="image-name">{name}</span>
     </div>
   );
