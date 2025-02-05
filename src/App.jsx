@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Dashboard from './components/Dashboard/Dashboard';
+import Sidebar from './components/Sidebar/Sidebar';
+
+import { useState } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
+import './App.scss';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [blocks, setBlocks] = useState([]);
 
+  const handleDrop = (item) => {
+    setBlocks((prevBlocks) => [
+      ...prevBlocks,
+      {
+        id: Date.now(),
+        url: item.url,
+        name: item.name,
+      },
+    ]);
+  };
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <DndProvider backend={HTML5Backend}>
+      <div className="app-container">
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+
+        <div className="main-content">
+          <header className="header">
+            <div className="search-bar">
+              <input type="text" placeholder="Search..." />
+            </div>
+            <div className="profile">
+              <img
+                src="/src/assets/images/profile.png"
+                className="profile-img"
+              ></img>
+              <span>Fido-Biznes User</span>
+            </div>
+          </header>
+
+          <div className="dashboard">
+            <Dashboard blocks={blocks} onDrop={handleDrop} />
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </DndProvider>
+  );
 }
 
-export default App
+export default App;

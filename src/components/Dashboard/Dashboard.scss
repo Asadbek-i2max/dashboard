@@ -1,0 +1,24 @@
+.dashboard-container {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.e-panel-content {
+  background-color: transparent;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: grab;
+
+  img {
+    width: 99%;
+    height: 99%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+}
