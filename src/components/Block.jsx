@@ -15,7 +15,6 @@ const Block = ({ id, children, onResize, width, height }) => {
         style={{
           width: `${width}px`,
           height: `${height}px`,
-          border: '1px solid #ddd',
           padding: '8px',
           position: 'relative',
         }}

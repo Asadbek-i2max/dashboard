@@ -34,7 +34,7 @@ const Sidebar = () => {
         <Menu.SubMenu
           key="dashboards"
           icon={<DashboardOutlined />}
-          title={`Dashboards (3)`}
+          title={`Dashboards (8)`}
         >
           <Image
             id="1"

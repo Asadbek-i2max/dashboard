@@ -14,7 +14,6 @@ function App() {
   const [blocks, setBlocks] = useState([]);
 
   const handleDrop = (item) => {
-    console.log('DROPPED');
     setBlocks((prevBlocks) => [
       ...prevBlocks,
       {

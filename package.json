@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@syncfusion/ej2-react-buttons": "^28.2.3",
+    "@syncfusion/ej2-react-grids": "^28.2.4",
+    "@syncfusion/ej2-react-layouts": "^28.2.4",
     "antd": "^5.23.3",
     "react": "^18.3.1",
     "react-dnd": "^16.0.1",

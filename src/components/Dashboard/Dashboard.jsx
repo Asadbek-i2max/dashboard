@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Row, Col } from 'antd';
 import { useDrop } from 'react-dnd';
-import Block from '../Block/Block';
+import Block from '../Block';
+
+import './Dashboard.scss';
 
 const Dashboard = ({ blocks = [], onDrop }) => {
   const [, drop] = useDrop(() => ({
@@ -10,7 +12,7 @@ const Dashboard = ({ blocks = [], onDrop }) => {
   }));
 
   return (
-    <div ref={drop} style={{ padding: '16px' }}>
+    <div ref={drop} className="dashboard">
       <Row gutter={[16, 16]}>
         {blocks.map((block) => (
           <Col key={block.id} span={6}>
@@ -19,6 +21,7 @@ const Dashboard = ({ blocks = [], onDrop }) => {
               width={block.width}
               height={block.height}
               onResize={(e, { size }) => {
+                console.log(e);
                 block.width = size.width;
                 block.height = size.height;
               }}
@@ -26,11 +29,7 @@ const Dashboard = ({ blocks = [], onDrop }) => {
               <img
                 src={block.url}
                 alt={block.name}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
+                className="block-image"
               />
             </Block>
           </Col>
