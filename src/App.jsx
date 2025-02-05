@@ -2,13 +2,10 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Sidebar from './components/Sidebar/Sidebar';
 
 import { useState } from 'react';
-import { Layout } from 'antd';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import './App.scss';
-
-const { Content } = Layout;
 
 function App() {
   const [blocks, setBlocks] = useState([]);
@@ -25,14 +22,30 @@ function App() {
   };
   return (
     <DndProvider backend={HTML5Backend}>
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sidebar />
-        <Layout>
-          <Content>
+      <div className="app-container">
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+
+        <div className="main-content">
+          <header className="header">
+            <div className="search-bar">
+              <input type="text" placeholder="Search..." />
+            </div>
+            <div className="profile">
+              <img
+                src="/src/assets/images/profile.png"
+                className="profile-img"
+              ></img>
+              <span>Fido-Biznes User</span>
+            </div>
+          </header>
+
+          <div className="dashboard">
             <Dashboard blocks={blocks} onDrop={handleDrop} />
-          </Content>
-        </Layout>
-      </Layout>
+          </div>
+        </div>
+      </div>
     </DndProvider>
   );
 }
