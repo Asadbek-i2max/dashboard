@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { DashboardLayoutComponent } from '@syncfusion/ej2-react-layouts';
 import './Dashboard.scss';
 
+const LOCAL_STORAGE_KEY = 'dashboard_panels';
+
 const Dashboard = ({ blocks = [], onDrop }) => {
   const [panels, setPanels] = useState([]);
   const [columns, setColumns] = useState(4);
@@ -30,22 +32,70 @@ const Dashboard = ({ blocks = [], onDrop }) => {
   }, []);
 
   useEffect(() => {
+    const savedPanels = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (savedPanels) {
+      setPanels(JSON.parse(savedPanels));
+    }
+  }, []);
+
+  useEffect(() => {
+    const savedPanels = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (savedPanels) {
+      setPanels(JSON.parse(savedPanels));
+    } else {
+      initializePanels(blocks);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (panels.length > 0) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(panels));
+    }
+  }, [panels]);
+
+  const initializePanels = (blocks) => {
+    if (blocks.length === 0) return;
+
     const newPanels = blocks.map((block, index) => ({
       sizeX: 1,
       sizeY: 1,
-      row: Math.floor(index / 4),
-      col: index % 4,
+      row: Math.floor(index / columns),
+      col: index % columns,
       content: `<img src="${block.url}" alt="${block.name}" />`,
     }));
+
     setPanels(newPanels);
-  }, [blocks]);
+  };
 
   const [, drop] = useDrop(() => ({
     accept: 'IMAGE',
     drop: (item) => {
       onDrop(item);
+      addPanel(item);
     },
   }));
+
+  const addPanel = (item) => {
+    setPanels((prevPanels) => {
+      const nextCol = prevPanels.length % columns;
+      const nextRow = Math.floor(prevPanels.length / columns);
+
+      const newPanel = {
+        sizeX: 1,
+        sizeY: 1,
+        row: nextRow,
+        col: nextCol,
+        content: `<img src="${item.url}" alt="${item.name}" />`,
+      };
+
+      const updatedPanels = [...prevPanels, newPanel];
+      localStorage.setItem(
+        LOCAL_STORAGE_KEY,
+        JSON.stringify(updatedPanels)
+      );
+      return updatedPanels;
+    });
+  };
 
   const cellSpacing = [17, 18];
 
