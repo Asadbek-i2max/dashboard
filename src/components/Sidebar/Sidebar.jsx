@@ -41,14 +41,14 @@ const Sidebar = () => {
           icon={<DashboardOutlined />}
           title={`Dashboards (8)`}
         >
-          <Image id="1" url={D1} name="Dashboard 1" />
-          <Image id="2" url={D2} name="Dashboard 2" />
-          <Image id="3" url={D3} name="Dashboard 3" />
-          <Image id="4" url={D4} name="Dashboard 4" />
-          <Image id="5" url={D5} name="Dashboard 5" />
-          <Image id="6" url={D6} name="Dashboard 6" />
-          <Image id="7" url={D7} name="Dashboard 7" />
-          <Image id="8" url={D8} name="Dashboard 8" />
+          <Image id="1" url={D1} name="Pie Chart" />
+          <Image id="2" url={D2} name="Triangle Chart" />
+          <Image id="3" url={D3} name="Circles Chart" />
+          <Image id="4" url={D4} name="Link Chart" />
+          <Image id="5" url={D5} name="Octagon Chart" />
+          <Image id="6" url={D6} name="Bar Chart" />
+          <Image id="7" url={D7} name="Table chart 1" />
+          <Image id="8" url={D8} name="Table chart 2" />
         </Menu.SubMenu>
       </Menu>
     </Sider>
