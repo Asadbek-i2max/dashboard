@@ -7,6 +7,8 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import './App.scss';
 
+import PROFILE from '../src/assets/images/profile.png';
+
 function App() {
   const [blocks, setBlocks] = useState([]);
 
@@ -33,10 +35,7 @@ function App() {
               <input type="text" placeholder="Search..." />
             </div>
             <div className="profile">
-              <img
-                src="/src/assets/images/profile.png"
-                className="profile-img"
-              ></img>
+              <img src={PROFILE} className="profile-img"></img>
               <span>Fido-Biznes User</span>
             </div>
           </header>
