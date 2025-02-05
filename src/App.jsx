@@ -20,8 +20,6 @@ function App() {
         id: Date.now(),
         url: item.url,
         name: item.name,
-        width: 100,
-        height: 100,
       },
     ]);
   };
